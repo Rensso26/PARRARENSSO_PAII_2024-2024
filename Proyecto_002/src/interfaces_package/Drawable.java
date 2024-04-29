@@ -1,6 +1,9 @@
 package interfaces_package;
 
+import java.awt.Graphics;
+
 public interface Drawable {
-	public int x = 400;
-	public int y = 520;
+	
+
+	public void draw(Graphics g);
 }
