@@ -2,56 +2,46 @@ package ships;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.Timer;
 
 import interfaces_package.Drawable;
 import interfaces_package.Mouble;
-import interfaces_package.Shootable;
 
-public class Bullet implements Drawable, Mouble, Shootable {
+public class Bullet implements Drawable, Mouble {
+
+	int XPoint;
+	int YPoint;
 	
-	
-	JFrame frame;
-	public int x;
-	public int y;
-	public boolean up;
-	public int getX() {
-		return x;
-	}
-
-
-	public int getY() {
-		return y;
-	}
-
-	public Bullet(JFrame frame, int x, int y, boolean up) {
-		this.frame = frame;
-		this.x = x;
-		this.y = y;
-		this.up = up;
-	}
-
-	@Override
-	public void move() {
-		if (up) {
-			y -= 20;
-		}else {
-			y += 20;
-		}
+	public Bullet(int XPoint, int YPoint) {
+		this.XPoint = XPoint;
+		this.YPoint = YPoint;
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		 g.setColor(Color.BLUE); 
-	     g.fillOval(x, y, 10, 15);
-	     frame.setVisible(true);
+
+		g.setColor(Color.RED);
+		g.fillOval(XPoint, YPoint, 10, 10);
 	}
 
+
+
 	@Override
-	public void shoot(ArrayList<Bullet> nw) {
-		nw.add(this);
+	public void moveUp(int distance) {
+		YPoint -= 10;
+	}
+
+
+	@Override
+	public void moveDown(int distance) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
+	
+	
+	

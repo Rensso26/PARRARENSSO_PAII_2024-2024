@@ -8,64 +8,47 @@ import interfaces_package.Drawable;
 import interfaces_package.Mouble;
 
 public class Aliens implements Drawable, Mouble{
+	int[] XPoints = new int[5];
+	int[] YPoints = new int[5];
 	
-	JFrame frame;
-	int x;
-	int y;
-	Timer time = new Timer();
-	boolean end = false;
-	public int getX() {
-		return x;
+	public Aliens(int randomX, int randomY) {
+		XPoints[0]=  randomX;
+		XPoints[1]=  randomX + 100;
+		XPoints[2]=  randomX + 100;
+		XPoints[3]=  randomX + 50;
+		XPoints[4]=  randomX;
+		
+		YPoints[0]=  randomY;
+		YPoints[1]=  randomY;
+		YPoints[2]=  randomY + 50;
+		YPoints[3]=  randomY + 25;
+		YPoints[4]=  randomY + 50;
+		
 	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-
 	
-	public Aliens(int x, int y, JFrame frame) {
-		this.x = x;
-		this.y = y;
-		this.frame = frame;
-	}		
 
 	@Override
 	public void draw(Graphics g) {
-	        g.setColor(Color.GREEN);
-	        int[] xPoints = {x, x + 80, x + 80, x+40, x};
-	        int[] yPoints = {y, y, y + 80, y + 40, y + 80};
-	        g.fillPolygon(xPoints, yPoints, 5);
-	        frame.setVisible(true);
+		g.setColor(Color.GREEN);
+		g.fillPolygon(XPoints, YPoints, 5);
 	}
+
 
 	@Override
-	public void move() {
-		
-		if(x>=650){
-			end= true;
-			y+=100;
-		}
-		if(x<=40) {
-			end = false;
-			y+=100;
-		}
-		if(end==false) {
-			x += 10;
-		}else if(end==true) {
-			x -=10;
-		}
+	public void moveUp(int distance) {
+		// TODO Auto-generated method stub
 		
 	}
 
+
+	@Override
+	public void moveDown(int distance) {
+		for(int i = 0; i < YPoints.length; i++) {
+			YPoints[i] = YPoints[i] + distance;
+		}
+		
+	}
+	
 }
 	
 
