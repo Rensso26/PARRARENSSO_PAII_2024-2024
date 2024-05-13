@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import frame.Screen;
 import models.Horarios;
 import models.Materia;
 import models.Professor;
@@ -15,18 +16,10 @@ public class App
 {
     public static void main( String[] args )
     {
-    	Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-        
-        configuration.addAnnotatedClass(Student.class);
-        configuration.addAnnotatedClass(Professor.class);
-        configuration.addAnnotatedClass(Materia.class);
-        configuration.addAnnotatedClass(Horarios.class);
-        
-        // Create Session Factory and auto-close with try-with-resources.
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
- 
-            Session session = sessionFactory.openSession();
+    	
+
+            Screen screen = new Screen();
+            screen.setVisible(true);
             /**
             Student student = new Student();
             student.setId(1);
@@ -59,9 +52,9 @@ public class App
             horario.setHora_inicio(Time.valueOf("08:00:00"));
             horario.setHora_fin(Time.valueOf("10:00:00"));
             session.persist(horario);
-            **/
             session.beginTransaction();
             session.getTransaction().commit();
-        }
+            **/
+        
     }
 }
