@@ -13,9 +13,7 @@ public class BasicbeansApplication {
 		SpringApplication.run(BasicbeansApplication.class, args);
 
 		BeanFactory factory = new ClassPathXmlApplicationContext("file:src/main/resources/personabeans.xml");
-
-		Persona persona = new Persona(1,"Pepe","jose",20);
-		System.out.println(persona.toString());
+		System.out.println(factory.getBean("Persona1"));
 	}
 
 }
