@@ -1,8 +1,8 @@
 package ec.uce.edu.models;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class Hero extends Role implements Drawable{
 
     private String name;
@@ -10,6 +10,7 @@ public class Hero extends Role implements Drawable{
     private int score;
 
     public Hero() {
+        super(3);
     }
     public Hero(String name, int life, int score){
         this.name = name;
@@ -44,6 +45,6 @@ public class Hero extends Role implements Drawable{
 
     @Override
     public void draw() {
-        System.out.println("Dibujo de mi heroe");
+        System.out.println("Dibujo de mi heroe con " + this.getCoordX().length + " puntos");
     }
 }
