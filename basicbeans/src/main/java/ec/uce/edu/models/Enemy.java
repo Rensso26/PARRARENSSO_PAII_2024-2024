@@ -3,7 +3,7 @@ package ec.uce.edu.models;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("enemy")
 public class Enemy extends Role implements Drawable{
 
     private int life;

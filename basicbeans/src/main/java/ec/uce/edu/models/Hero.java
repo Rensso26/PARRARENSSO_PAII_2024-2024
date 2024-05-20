@@ -1,10 +1,11 @@
 package ec.uce.edu.models;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("hero")
 public class Hero extends Role implements Drawable{
-
+    @Value("Player 1")
     private String name;
     private int life;
     private int score;
@@ -45,6 +46,6 @@ public class Hero extends Role implements Drawable{
 
     @Override
     public void draw() {
-        System.out.println("Dibujo de mi heroe con " + this.getCoordX().length + " puntos");
+        System.out.println("Dibujo de mi heroe con " + this.getCoordX().length + " puntos, con nombre: " + this.name);
     }
 }
