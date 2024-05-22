@@ -19,11 +19,13 @@ public class Person {
 
     }
 
-    public Person(String name, String lastname, int age) {
+    public Person(long id, String name, String lastname, int age) {
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.age = age;
     }
+
 
     public long getId() {
         return id;
@@ -55,5 +57,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", name= '" + name + '\'' +
+                ", lastname= '" + lastname + '\'' +
+                ", age= " + age ;
     }
 }
