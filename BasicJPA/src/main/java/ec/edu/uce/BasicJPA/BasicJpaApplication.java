@@ -1,40 +1,44 @@
 package ec.edu.uce.BasicJPA;
 
 import ec.edu.uce.BasicJPA.models.Person;
-import ec.edu.uce.BasicJPA.services.PersonServices;
+import ec.edu.uce.BasicJPA.services.PersonService;
+import jakarta.annotation.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import javax.naming.Context;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootApplication
-public class BasicJpaApplication  implements CommandLineRunner {
+public class BasicJpaApplication implements CommandLineRunner {
 	@Autowired
-	PersonServices services;
-
+	PersonService service;
 	public static void main(String[] args) {
-		SpringApplication.run(BasicJpaApplication.class,args);
+		SpringApplication.run(BasicJpaApplication.class, args);
+//		Person person = new Person("Fredy","Tapia",12);
+//		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+//		ctx.getBean(PersonService.class);
+//		PersonService personService = ctx.getBean(PersonService.class);
+//		personService.save(new Person("Make","trez",21));
+
+
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		services.save(new Person(1,"Fredy","Tapia",24));
-		services.save(new Person(2,"Emil","Verkade",22));
-		services.save(new Person(3,"Joel","Luna",23));
-		services.save(new Person(4,"Kevin","Pozo",22));
-		services.save(new Person(5,"Brayan","Loya",23));
+		service.save(new Person(1,"make","Rut",23));
+		service.save(new Person(2,"nate","Rut",26));
+		service.save(new Person(3,"jame","Rut",27));
+		service.save(new Person(4,"arthur","Rut",30));
+		service.save(new Person(5,"walter","Rut",55));
 
-//		List<Person> personList = services.findAll();
-//		for (Person personlist : personList){
-//			System.out.println(personlist);
-//		}
-		List<Person> busqueda = services.findByName("Kevin");
-		System.out.println(busqueda);
+		//metodo para leer la tabla
 
-		List<Person> busqueda2 = services.findByLastName("Loya");
-		System.out.println(busqueda2);
+		for(Person person : service.read()){
+			System.out.println(person.toString());
+		}
 	}
 }
